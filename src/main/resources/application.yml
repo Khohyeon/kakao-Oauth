@@ -7,10 +7,6 @@ server:
       force: true
 
 spring:
-  mvc:
-      view:
-        prefix: /templates/
-        suffix: .mustache
   datasource:
     url: jdbc:h2:mem:test;MODE=MySQL
     driver-class-name: org.h2.Driver
@@ -19,10 +15,9 @@ spring:
   h2:
     console:
       enabled: true
-  
-  jpa:
-    hibernate:
-      ddl-auto: create
-    show-sql: true
 
-  
+mybatis:
+  mapper-locations:
+    - classpath:mapper/**.xml
+  configuration:
+    map-underscore-to-camel-case: true
